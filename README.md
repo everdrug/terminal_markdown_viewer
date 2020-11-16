@@ -136,7 +136,7 @@ Summary: For production ready robust markdown viewing (e.g. for your customers) 
 
 ## Installation
 
-    pip install mdv
+    pip3 install -U mdv3
 
 If you get `no attribute HTML_PLACEHOLDER`: update your markdown package.
 
@@ -501,7 +501,7 @@ Also:
 - using `textwrap` now for the wrapping, to avoid these word breaks a few complained about
 - you can supply the default lexer now, e.g. `-X javascript [-x]`
 - fixed but with not rendered strong texts
-- pip install mdv
+- pip3 install -U mdv3
 
 
 ### Nov 2016:
