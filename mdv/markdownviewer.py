@@ -504,16 +504,16 @@ def style_ansi(raw_code, lang=None):
         try:
             lexer = get_lexer_by_name(lexer_alias(lang))
         except (ValueError, ClassNotFound):
-            print(col('Lexer for {} not found'.format(lang), R))
+            #print(col('Lexer for {} not found'.format(lang), R))
             pass
 
-    if not lexer:
-        try:
-            if guess_lexer:
-                # takes a long time!
-                lexer = pyg_guess_lexer(raw_code)
-        except:
-            pass
+    #if not lexer:
+    #    try:
+    #        if guess_lexer:
+    #            # takes a long time!
+    #            lexer = pyg_guess_lexer(raw_code)
+    #    except:
+    #        pass
 
     if not lexer:
         for l in (def_lexer, 'yaml', 'python', 'c'):
