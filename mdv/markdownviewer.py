@@ -493,46 +493,46 @@ def set_theme(theme=None, for_code=None, theme_info=None):
 
 def style_ansi(raw_code, lang=None):
     """ actual code hilite """
+    return raw_code
+    #def lexer_alias(n):
+    #    # not found:
+    #    if n == 'markdown':
+    #        return 'md'
+    #    return n
 
-    def lexer_alias(n):
-        # not found:
-        if n == 'markdown':
-            return 'md'
-        return n
+    #lexer = 0
+    #if lang:
+    #    try:
+    #        lexer = get_lexer_by_name(lexer_alias(lang))
+    #    except (ValueError, ClassNotFound):
+    #        print(col('Lexer for {} not found'.format(lang), R))
 
-    lexer = 0
-    if lang:
-        try:
-            lexer = get_lexer_by_name(lexer_alias(lang))
-        except (ValueError, ClassNotFound):
-            print(col('Lexer for {} not found'.format(lang), R))
+    #if not lexer:
+    #    try:
+    #        if guess_lexer:
+    #            # takes a long time!
+    #            lexer = pyg_guess_lexer(raw_code)
+    #    except:
+    #        pass
 
-    if not lexer:
-        try:
-            if guess_lexer:
-                # takes a long time!
-                lexer = pyg_guess_lexer(raw_code)
-        except:
-            pass
+    #if not lexer:
+    #    for l in (def_lexer, 'yaml', 'python', 'c'):
+    #        try:
+    #            lexer = get_lexer_by_name(lexer_alias(l))
+    #            break
+    #        except:
+    #            # OUR def_lexer (python) was overridden,but not found.
+    #            # still we should not fail. lets use yaml. or python:
+    #            continue
 
-    if not lexer:
-        for l in (def_lexer, 'yaml', 'python', 'c'):
-            try:
-                lexer = get_lexer_by_name(lexer_alias(l))
-                break
-            except:
-                # OUR def_lexer (python) was overridden,but not found.
-                # still we should not fail. lets use yaml. or python:
-                continue
-
-    tokens = lex(raw_code, lexer)
-    cod = []
-    for t, v in tokens:
-        if not v:
-            continue
-        _col = code_hl_tokens.get(t) or C  # color
-        cod.append(col(v, _col))
-    return ''.join(cod)
+    #tokens = lex(raw_code, lexer)
+    #cod = []
+    #for t, v in tokens:
+    #    if not v:
+    #        continue
+    #    _col = code_hl_tokens.get(t) or C  # color
+    #    cod.append(col(v, _col))
+    #return ''.join(cod)
 
 
 def col_bg(c):
